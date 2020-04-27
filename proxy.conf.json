@@ -1,0 +1,9 @@
+{
+   "/steamapi/*": {
+      "target": "http://api.steampowered.com",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin":true,
+      "pathRewrite": {"^/steamapi" : ""}
+   }
+}
