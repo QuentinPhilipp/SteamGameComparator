@@ -36,10 +36,12 @@ export class GameService {
   {
     console.log(user);
     this.url = "/steamapi/IPlayerService/GetOwnedGames/v0001/?key=AC5A292DA7F7814A9C54001E2C94D1AF&steamid="+user+"&include_appinfo=1&include_played_free_game=1&format=json";
+    console.log(this.url);
 
-    this.http.get(this.url).toPromise().then(data => {
-        console.log(this.url);
-
+    this.http.get(this.url)
+          .subscribe(data =>
+            {
+        console.log("data :",data);
         if (this.games.length==0) {
           console.log("First User");
           data.response.games.forEach(game => {
@@ -49,7 +51,7 @@ export class GameService {
                 "http://media.steampowered.com/steamcommunity/public/images/apps/"+game.appid+"/"+game.img_logo_url+".jpg"
                 )
             console.log("http://media.steampowered.com/steamcommunity/public/images/apps/"+game.appid+"/"+game.img_logo_url+".jpg")
-            this.games.push(newGame)
+            //this.games.push(newGame)
           });
         }
         else
@@ -72,11 +74,23 @@ export class GameService {
             });
           });
           console.log("New List : ",this.commonGameList)
-          this.games = this.commonGameList;
+          //this.games = this.commonGameList;
 
         }
 
     });
   }
+
+  // updateGames(user)
+  // {
+  //   console.log(user);
+  //   this.url = "/steamapi/IPlayerService/GetOwnedGames/v0001/?key=AC5A292DA7F7814A9C54001E2C94D1AF&steamid="+user+"&include_appinfo=1&include_played_free_game=1&format=json";
+  //
+  //
+  //
+  //   this.http.get("/steamapi/IPlayerService/GetOwnedGames/v0001/?key=AC5A292DA7F7814A9C54001E2C94D1AF&steamid="+user+"&include_appinfo=1&include_played_free_game=1&format=json")
+  //       .subscribe(response => console.log(response));
+  // }
+
 
 }
