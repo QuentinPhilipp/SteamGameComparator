@@ -5,6 +5,11 @@
      </div>
      <div class="card-block px-2">
          <p class="card-text text-truncate friend-name">{{friend.name}}</p>
-         <a href="#" class="btn btn-primary friend-select">Select</a>
+         <div *ngIf="friend.selected==false">
+         <a (click)="selectFriend()" class="btn btn-primary friend-select white">Select</a>
+         </div>
+         <div *ngIf="friend.selected==true">
+         <a (click)="removeFriend()" class="btn btn-primary friend-select white">Remove</a>
+         </div>
      </div>
  </div>

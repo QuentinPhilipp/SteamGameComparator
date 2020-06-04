@@ -1,5 +1,5 @@
 
-<form #userForm="ngForm" class="container" (ngSubmit)="addUser(userForm)">
+<form #userForm="ngForm" class="container" (ngSubmit)="setUser(userForm)">
   <div class="row justify-content-center">
     <div>
       <label for="id">
@@ -16,7 +16,3 @@
   </div>
 
 </form>
-
-<div class="user-in" *ngFor="let user of users; let i = index;">
-  {{user.userID}}
-</div>

@@ -22,7 +22,7 @@ export class InputIdComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addUser(form: NgForm) {
+  setUser(form: NgForm) {
     console.log(form.value.id)
     this.users.push({
       id: this.users.length + 1,

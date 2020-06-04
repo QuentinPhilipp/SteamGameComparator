@@ -11,7 +11,7 @@ import {FriendService} from "../friend.service"
 export class FriendsComponent implements OnInit {
   @Input() friend;
 
-  constructor() {
+  constructor(private friendService:FriendService) {
     //Default value
     this.friend = new Friend(-1,"Error","assets/img/error.jpg","/")
   }
@@ -19,4 +19,14 @@ export class FriendsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectFriend():void
+  {
+    this.friendService.selectFriend(this.friend);
+    
+  }
+
+  removeFriend():void
+  {
+    this.friendService.removeFriend(this.friend);
+  }
 }
