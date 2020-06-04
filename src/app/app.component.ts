@@ -11,16 +11,21 @@ export class AppComponent implements OnInit {
 
 
   games;
-  friend;
-  
+  friends;
+
   constructor(private gameService :GameService, private friendService:FriendService)
   {
-
+    this.friends = this.friendService.getAllFriends();
+    // this.friendService.getAllFriends().subscribe(
+    //   dataa => { console.log(dataa); this.friends = dataa; }
+    //   , errr => { console.log(errr); }
+    // )
   }
+
 
   ngOnInit() {
     this.games = this.gameService.getAllGames();
-    this.friend = this.friendService.getAllFriend();
+    this.friends = this.friendService.getAllFriends();
 
   }
 

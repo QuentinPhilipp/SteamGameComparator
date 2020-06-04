@@ -14,6 +14,17 @@
   <app-input-id></app-input-id>
 </div>
 
+<section id="all-friend">
+  <!-- <app-friends [friend]="friend" class="w-100"></app-friends> -->
+
+  <div class="friend-container row px-4 py-4 justify-content-center">
+    <div class="prod"  *ngFor="let friend of friends; let i = index; trackBy: customTB">
+      <!-- friend.name -->
+        <app-friends [friend]="friend" class="w-100"></app-friends>
+    </div>
+  </div>
+</section>
+
 <section id="all-product">
   <div class="product-container row px-4 py-4 justify-content-center">
     <div class="prod"  *ngFor="let game of gameService.getAllGames()">

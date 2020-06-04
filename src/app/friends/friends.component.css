@@ -1,0 +1,18 @@
+.friend-img {
+  width: 50px;
+}
+
+
+.friend-card {
+  width: 240px;
+  overflow: hidden;
+}
+
+.friend-select {
+  margin-top: 0;
+  margin-bottom:5px;
+}
+
+.friend-name {
+  margin-bottom: 5px;
+}

@@ -1,1 +1,10 @@
-<p>friends works!</p>
+
+<div class="card flex-row friend-card">
+     <div class="card-header border-0">
+       <a href={{friend.url}} target="_blank"><img src={{friend.picture}}  onerror="this.src='assets/img/error.jpg';" class="friend-img" alt="..."></a>
+     </div>
+     <div class="card-block px-2">
+         <p class="card-text text-truncate friend-name">{{friend.name}}</p>
+         <a href="#" class="btn btn-primary friend-select">Select</a>
+     </div>
+ </div>
