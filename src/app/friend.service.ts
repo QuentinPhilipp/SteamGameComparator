@@ -50,7 +50,6 @@ export class FriendService {
             playerList.push(friendArray);
         }
 
-        console.log("playerList:",playerList);
 
         let playerListString = [];
 
@@ -79,7 +78,6 @@ export class FriendService {
                           )
                       this.friends.push(newFriend)
                     });
-                    console.log("friends:",this.friends);
 
                   });
 
@@ -87,6 +85,7 @@ export class FriendService {
 
 
       });
+
       return this.friends
     }
 

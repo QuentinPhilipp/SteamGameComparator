@@ -30,11 +30,11 @@
   </form>
 </div>
 
-<div *ngIf="selectedfriends.length > 0">
+<div *ngIf="selectedFriends.length > 0">
   <section id="selected-friend">
     <!-- <app-friends [friend]="friend" class="w-100"></app-friends> -->
     <div class="friend-container row px-4 py-4 justify-content-center">
-      <div class="prod"  *ngFor="let friend of selectedfriends">
+      <div class="prod"  *ngFor="let friend of selectedFriends">
         <!-- friend.name -->
           <app-friends [friend]="friend" class="w-100"></app-friends>
       </div>
@@ -42,15 +42,15 @@
   </section>
 </div>
 
-<div *ngIf="selectedfriends.length > 1" class="d-flex justify-content-center">
-  <button class="btn btn-primary" (click)="searchCommonGame()" type="button" name="button">Search common games</button>
+<div *ngIf="selectedFriends.length > 1" class="d-flex justify-content-center">
+  <button class="btn btn-primary" (click)="getCommonGame()" type="button" name="button">Search common games</button>
 </div>
 
 <section id="all-friend">
   <!-- <app-friends [friend]="friend" class="w-100"></app-friends> -->
 
-  <div class="friend-container row px-4 py-4 justify-content-center">
-    <div class="prod"  *ngFor="let friend of friends">
+  <div id="friends-list" class="friend-container-bottom row px-4 py-4 justify-content-center">
+    <div class="prod"  *ngFor="let friend of displayedFriends">
       <!-- friend.name -->
       <div *ngIf="friend.selected==false">
         <app-friends [friend]="friend" class="w-100"></app-friends>
@@ -59,10 +59,17 @@
   </div>
 </section>
 
-<section id="all-product">
-  <div class="product-container row px-4 py-4 justify-content-center">
-    <div class="prod"  *ngFor="let game of gameService.getAllGames()">
-        <app-game [game]="game" class="w-100"></app-game>
+<section id="games-list">
+  <div *ngIf="gameState==true">
+    <div class="number-of-game">
+      {{games.length}} common games founds.
+    </div>
+    <div class="row px-4 py-4 justify-content-center">
+      <div *ngIf="games.length>0">
+        <div class="prod"  *ngFor="let game of games">
+            <app-game [game]="game" class="w-100"></app-game>
+        </div>
+      </div>
     </div>
   </div>
 </section>

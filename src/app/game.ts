@@ -8,5 +8,6 @@ export class Game {
     this.id = _id;
     this.name = _name;
     this.picture = _picture
+    this.link="https://store.steampowered.com/app/"+this.id;
   }
 }

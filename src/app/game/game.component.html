@@ -1,10 +1,14 @@
-<!-- <p>Game Work</p> -->
 
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top article-photo" src={{game.picture}}
-  onerror="this.src='assets/img/error.jpg';" alt="">
-  <div class="card-body">
-      <p class="card-text">{{game.name}}</p>
+<div class="game-card">
+  <div class="col-12 max-height">
+    <div class="row max-height align-middle">
+      <div class="col-6 game-picture-holder align-middle border-0">
+        <a href="{{game.link}}" target="_blank"><img src={{game.picture}}  onerror="this.src='assets/img/error.jpg';" class="game-img align-middle" alt="..."></a>
+      </div>
+      <div class="col-6 px-2">
+        <p class="align-middle game-name">{{game.name}}</p>
+      </div>
+    </div>
   </div>
-</div>
+ </div>

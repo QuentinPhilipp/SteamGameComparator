@@ -1,7 +1,18 @@
+.game-img {
+  width: 100px;
+}
 
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
+.game-card {
+  width: 240px;
+  height: 70px;
+  overflow: hidden;
+}
+
+.game-picture-holder {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.max-height {
+  height: 100%;
 }

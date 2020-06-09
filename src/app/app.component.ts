@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GameService} from "./game-service.service"
 import {FriendService} from "./friend.service"
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,11 @@ export class AppComponent implements OnInit {
 
 
   userID;
-  games;
+  games = [];
   friends = [];
-  selectedfriends = [];
+  selectedFriends = [];
+  displayedFriends=[];
+  gameState=false;
 
   constructor(private gameService :GameService, private friendService:FriendService)
   {
@@ -27,7 +30,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.games = this.gameService.getAllGames();
+    //this.games = this.gameService.getAllGames();
     //this.friends = this.friendService.getAllFriends();
     //this.selectedfriends=this.friendService.getSelectedFriends();
   }
@@ -38,11 +41,22 @@ export class AppComponent implements OnInit {
     console.log("User ID : ", this.userID);
 
     this.friends = this.friendService.getAllFriends(this.userID);
-    this.selectedfriends=this.friendService.getSelectedFriends();
+    this.displayedFriends= this.friends;
+    this.selectedFriends=this.friendService.getSelectedFriends();
+    this.games = this.gameService.getAllGames(this.selectedFriends);
+    console.log("User friends : ", this.displayedFriends);
+
   }
 
-  searchCommonGame() {
-    
+
+  getCommonGame() {
+    this.games = this.gameService.getAllGames(this.selectedFriends);
+    console.log("Games : ",this.games);
+    this.displayedFriends=[];
+    this.gameState=true;
+    //document.getElementById("friends-list").style.visibility="hidden";
   }
+
+
 
 }
